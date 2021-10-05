@@ -1,0 +1,16 @@
+services:
+  productpage:
+    build: .
+    image: ghcr.io/piyanatnine/bookinfo-productpage:dev
+    ports:
+      - "8083:9080"
+    environment:
+      REVIEWS_HOSTNAME: http://reviews:9080
+      RATINGS_HOSTNAME: http://ratings:8080
+      DETAILS_HOSTNAME: http://details:9080
+  ratings:
+    image: ghcr.io/piyanatnine/bookinfo-ratings:dev
+  details:
+    image: ghcr.io/piyanatnine/bookinfo-details:dev
+  reviews:
+    image: ghcr.io/piyanatnine/bookinfo-reviews:dev
